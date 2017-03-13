@@ -5,6 +5,7 @@
   <hr>
   <%= simple_format(@recipe.description) %>
   <hr>
+  <%= link_to '[ edit this recipe ]', edit_recipe_path %>
   <div class="pull-right">
     <p class="center">
       <em>Created by:</em> 
@@ -18,4 +19,6 @@
     </p>
   </div>
 </div>
+
+<div class="col-md-offset-4 col-md-4 back-link"><%= link_to '[ cancel and go back to listing ]', recipes_path %></div> 
 

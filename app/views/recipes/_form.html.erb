@@ -1,0 +1,36 @@
+<% if @recipe.errors.any? %>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title">
+          <%= pluralize(@recipe.errors.count, "error") %>
+          prohibited this <%= @recipe.class %> from being saved.
+        </h2>
+        <div class="panel-body">
+          <ul>
+            <% @recipe.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+ 
+<div class="col-md-12">
+  <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+      <div class="control-label col-md-2"><%= f.label :name %></div>
+      <div class="col-md-8" ><%= f.text_field :name, class: "form-control", placeholder: "Name of recipe", autofocus: true %></div>
+    </div>
+    <div class="form-group">
+      <div class="control-label col-md-2"><%= f.label :steps %></div>
+      <div class="col-md-8" ><%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Enter steps for recipe" %></div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-8 back-link"><%= f.submit class:"btn btn-default btn-xl"%></div> 
+    </div>
+  <% end %>
+  
+</div>
