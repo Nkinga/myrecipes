@@ -56,8 +56,16 @@ body {
 
 .back-link {
   margin-bottom: 10px;
+  
+  a {
+    color: #13d63d;
+  }
 }
 
-.back-link a{
-  color: #13d63d;
+.recipe-actions {
+  padding-top: 10px;
+  
+  a {
+    color: #000;
+  }
 }

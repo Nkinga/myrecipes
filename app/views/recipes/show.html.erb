@@ -5,7 +5,9 @@
   <hr>
   <%= simple_format(@recipe.description) %>
   <hr>
-  <%= link_to '[ edit this recipe ]', edit_recipe_path %>
+  
+  
+  
   <div class="pull-right">
     <p class="center">
       <em>Created by:</em> 
@@ -18,6 +20,13 @@
       <div class="pull-right">created: <%= time_ago_in_words(@recipe.created_at) %> ago</div>
     </p>
   </div>
+  
+  <div class="recipe-actions">
+    <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-xl btn-warning" %>
+    <%= link_to '[ delete this recipe ]', recipe_path(@recipe), method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
+  
 </div>
 
 <div class="col-md-offset-4 col-md-4 back-link"><%= link_to '[ cancel and go back to listing ]', recipes_path %></div> 
