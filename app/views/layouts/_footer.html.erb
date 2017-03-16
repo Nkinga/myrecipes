@@ -25,11 +25,12 @@
         </div>
         <div class="col-md-4">
           <h3>Sign Up</h3>
+          
            <div class="col-md-12">
-             <%= form_for  :chef, remote: true  do |f| %>
+             <%= form_for :chef, remote: true  do |f| %>
               <div class="form-group">
-                <%= f.label :name %>
-                <%= f.text_field :name, class: "form-control", placeholder: "Name", autofocus: true %>
+                <%= f.label :chefname %>
+                <%= f.text_field :chefname, class: "form-control", placeholder: "Name", autofocus: true %>
               </div>
               <div class="form-group">
                 <%= f.label :email %>
@@ -40,13 +41,13 @@
                 <%= f.password_field :password, type: "password", class: "form-control", placeholder: "Password" %>
               </div>
               <div class="form-group">
-                <%= f.label :terms do %>
-                  <%= f.check_box :terms %> Remember me
-                <% end %>
+                <%= f.label :password_confirmation, "Confirm password" %>
+                <%= f.password_field :_confirmation, type: "password", class: "form-control", placeholder: "Confirm Password" %>
               </div>
-              <%= f.submit class:"btn btn-default btn-xl"%>
-            </div>
+            
+              <%= f.submit "create account", class:"btn btn-default btn-xl"%>
             <% end %>
+          </div>
         </div>
       </div>
     </div>

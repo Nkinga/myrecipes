@@ -1,0 +1,33 @@
+
+<div class="container">
+  
+  <%= render "shared/page_title", title: "signup" %>
+  
+  <%= render "shared/errors", obj: @chef %>
+  
+  <div class="col-md-12 signup-form">
+    <%= form_for(@chef, :html => {class: "form-horizaontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :chefname, "Name" %>
+        <%= f.text_field :chefname, class: "form-control", placeholder: "Enter Name", autofocus: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email,class: "form-control", placeholder: "Enter Email Address" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, type: "password", class: "form-control", placeholder: "Enter Password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Confirm password" %>
+        <%= f.password_field :_confirmation, type: "password", class: "form-control", placeholder: "Confirm Password" %>
+      </div>
+      <div>
+        <%= f.submit "create account", class:"btn btn-default btn-xl"%>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="col-md-offset-4 col-md-4 back-link"><%= link_to '[ cancel and go back to listing ]', recipes_path %></div> 
+  

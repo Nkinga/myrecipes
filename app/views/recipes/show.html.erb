@@ -1,34 +1,36 @@
-<%= render "shared/page_title", title: @recipe.name %>
+<div class="container">
 
-<div class="well col-md-8 col-md-offset-2">
-  <h4 class="center description"><strong>Steps: </strong></h4> 
-  <hr>
-  <%= simple_format(@recipe.description) %>
-  <hr>
+  <%= render "shared/page_title", title: @recipe.name %>
   
-  
-  
-  <div class="pull-right">
-    <p class="center">
-      <em>Created by:</em> 
-    </p>
-    <p class="center">
-      <%= link_to gravatar_for(@recipe.chef), recipes_path %>
-    </p>
-    <p class="center">
-      <small><%= @recipe.chef.chefname.capitalize %></small>
-      <div class="pull-right">created: <%= time_ago_in_words(@recipe.created_at) %> ago</div>
-    </p>
+  <div class="well col-md-8 col-md-offset-2">
+    <h4 class="center description"><strong>Steps: </strong></h4> 
+    <hr>
+    <%= simple_format(@recipe.description) %>
+    <hr>
+    
+    
+    
+    <div class="pull-right">
+      <p class="center">
+        <em>Created by:</em> 
+      </p>
+      <p class="center">
+        <%= link_to gravatar_for(@recipe.chef), recipes_path %>
+      </p>
+      <p class="center">
+        <small><%= @recipe.chef.chefname.capitalize %></small>
+        <div class="pull-right">created: <%= time_ago_in_words(@recipe.created_at) %> ago</div>
+      </p>
+    </div>
+    
+    <div class="recipe-actions">
+      <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-warning" %>
+      <%= link_to 'delete this recipe', recipe_path(@recipe), method: :delete,
+                data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <%= link_to '[ return to recipes listing ]', recipes_path, class: "btn btn-primary" %>
+    </div>
+    
   </div>
-  
-  <div class="recipe-actions">
-    <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-warning" %>
-    <%= link_to '[ delete this recipe ]', recipe_path(@recipe), method: :delete,
-              data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    <%= link_to '[ return to recipes listing ]', recipes_path, class: "btn btn-primary" %>
-  </div>
-  
-</div>
 
 
 

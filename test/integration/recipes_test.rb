@@ -3,8 +3,8 @@ require 'test_helper'
 class RecipesTest < ActionDispatch::IntegrationTest
   
   def setup
-    @chef = Chef.create!(chefname: "muriel", email: "murie@example.com")
-    @recipe = Recipe.create(name: "pown", description: "grated cassava in milk seasoned with spices and baked for 1 hr", chef: @chef)
+    @chef = Chef.create!(chefname: "muriel", email: "murie@example.com", password: "password", password_confirmation: "password")
+    @recipe = Recipe.create(name: "cassava pown", description: "grated cassava in milk seasoned with spices and baked for 1 hr", chef: @chef)
     @recipe2 = @chef.recipes.create(name: "fish broth", description: "well seasoned fish, sliced boiled in water with vegetables and dumplings")
   end
   
@@ -36,7 +36,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
     assert_template "recipes/new"
     name_of_recipe = "oil down"
     description_of_recipe = "sliced breadfruit, ground provisions, cook for 30 mins in coconut milk"
-    assert_difference "Recipe_count", 1 do
+    assert_difference "Recipe.count", 1 do
       post recipes_path, params: { recipe: {name: name_of_recipe, description: description_of_recipe } }
     end
     follow_redirect!
@@ -47,7 +47,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   test "reject invalid recipe submissions" do
     get new_recipe_path
     assert_template "recipes/new"
-    assert_no_difference "Recipe_count" do
+    assert_no_difference "Recipe.count" do
       post recipes_path, params: { recipe: {name: " ", description: " " } }
       assert_template "recipes/new"
       assert_select 'h2.panel-title'
