@@ -1,5 +1,13 @@
 <div class="container">
 
   <%= render "shared/page_title", title: "listing of recipes" %>
-  <hr>
+  
+  <div align="center">
+    <%= will_paginate %>
+  </div>
+  
   <%= render 'recipe', obj: @recipes %>
+  
+  <div align="center">
+    <%= will_paginate %>
+  </div>

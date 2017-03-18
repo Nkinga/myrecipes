@@ -9,6 +9,15 @@
   </div>
   
   <h4 align="center"><%= @chef.chefname %>'s recipes</h4>
-  <%= render 'recipes/recipe', obj: @chef.recipes %>
+  
+  <div align="center">
+    <%= will_paginate @chef_recipes %>
+  </div>
+  
+  <%= render 'recipes/recipe', obj: @chef_recipes %>
+  
+  <div align="center">
+    <%= will_paginate @chef_recipes %>
+  </div>
   
   <div class="col-md-offset-4 col-md-4 back-link"><%= link_to '[ cancel and go back to chefs listing ]', chefs_path %></div>
