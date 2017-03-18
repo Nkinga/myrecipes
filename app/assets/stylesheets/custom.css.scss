@@ -75,3 +75,10 @@ body {
   margin-left: 15%;
   margin-right: 15%;
 }
+
+.listing {
+  padding-left: 0;
+  li {
+    list-style: none;
+  }
+}

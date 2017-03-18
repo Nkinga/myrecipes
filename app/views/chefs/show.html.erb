@@ -1,1 +1,14 @@
-<%= render 'shared/page_title', title: "Your Profile" %>
+<div class="container">
+
+  <%= render 'shared/page_title', title: "Chef #{@chef.chefname}'s profile" %>
+  
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+      <%= gravatar_for @chef, size: 150 %>
+    </div>
+  </div>
+  
+  <h4 align="center"><%= @chef.chefname %>'s recipes</h4>
+  <%= render 'recipes/recipe', obj: @chef.recipes %>
+  
+  <div class="col-md-offset-4 col-md-4 back-link"><%= link_to '[ cancel and go back to chefs listing ]', chefs_path %></div>
