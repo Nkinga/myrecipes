@@ -12,6 +12,8 @@
             <li class="chef-title"><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
             <li><%= chef.email %></li>
             <li><small><%= pluralize(chef.recipes.count, "recipe") if chef.recipes %></small></li>
+            <li><%= link_to "delete this chef", chef_path(chef), method: :delete,
+                data: { confirm: 'Are you sure you want to delete chef and all associated recipes?' }, class: "btn btn-danger"%></li>
           </div>
         </div>
       </ul>

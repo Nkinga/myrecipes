@@ -1,4 +1,5 @@
 class ChefsController < ApplicationController
+  before_action :set_chef, only: [:edit, :show, :update, :destroy]
   
   def new
     @chef = Chef.new
@@ -39,7 +40,7 @@ class ChefsController < ApplicationController
   
   def destroy
     @chef.destroy
-      flash[:notice] = "Recipe was successfully deleted." 
+      flash[:notice] = "Chef and recipes were successfully deleted." 
       redirect_to chefs_path
   end
 
@@ -49,4 +50,8 @@ class ChefsController < ApplicationController
     params.require(:chef).permit(:chefname, :email, 
                                     :password, :password_confirmation)
   end
+  
+  def set_chef
+      @chef = Chef.find(params[:id])
+    end
 end
