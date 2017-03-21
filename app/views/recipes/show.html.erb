@@ -24,9 +24,11 @@
     </div>
     
     <div class="recipe-actions">
-      <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-warning" %>
-      <%= link_to 'delete this recipe', recipe_path(@recipe), method: :delete,
-                data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% if logged_in? && current_chef == @recipe.chef %>
+        <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-warning" %>
+        <%= link_to 'delete this recipe', recipe_path(@recipe), method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% end %>
       <%= link_to '[ return to recipes listing ]', recipes_path, class: "btn btn-primary" %>
     </div>
     
