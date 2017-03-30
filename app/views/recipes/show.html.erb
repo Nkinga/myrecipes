@@ -35,6 +35,39 @@
     </div>
     
   </div>
+  
+  <% if logged_in? %>
+    
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Comment: </h2>
+        <hr>
+        <%= form_for ([@recipe, @recipe.comments.build]) do |f| %>
+          <div class="form-group">
+            <div class="control-label col-md-2"><%= f.label :comment %></div>
+            <div class="col-md-10" ><%= f.text_area :description, class: "form-control", rows: 3, placeholder: "Enter comment" %></div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-8 back-link"><%= f.submit "submit comment", class:"btn btn-default btn-xl" %></div> 
+          </div>
+        <%  end %>
+      </div>
+   
+  <% end %>
+  
+  <% if @recipe.comments.any? %>
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Prior Comments: </h3>
+      <div id="message">
+        <%= render partial: 'comments/comments', object: @comments %>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-md-8 col-md-offset-2">
+      <h3>No Comments Yet!</h3>
+    </div>
+  <% end %>
+  
+  
 
 
 
