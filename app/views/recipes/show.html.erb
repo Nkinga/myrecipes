@@ -9,7 +9,7 @@
     <hr>
     
     <% if @recipe.ingredients.any? %>
-      <p>Ingresients: <%= render @recipe.ingredients %></p>
+      <p>Ingredients: <%= render @recipe.ingredients %></p>
     <% end %>
     
     <div class="pull-right">
@@ -41,7 +41,7 @@
       <div class="col-md-8 col-md-offset-2">
         <h3>Comment: </h2>
         <hr>
-        <%= form_for ([@recipe, @recipe.comments.build]) do |f| %>
+        <%= form_for [@recipe, @comment], remote: true do |f| %>
           <div class="form-group">
             <div class="control-label col-md-2"><%= f.label :comment %></div>
             <div class="col-md-10" ><%= f.text_area :description, class: "form-control", rows: 3, placeholder: "Enter comment" %></div>
@@ -57,7 +57,7 @@
   <% if @recipe.comments.any? %>
     <div class="col-md-8 col-md-offset-2">
       <h3>Prior Comments: </h3>
-      <div id="message">
+      <div id="messages">
         <%= render partial: 'comments/comments', object: @comments %>
       </div>
     </div>

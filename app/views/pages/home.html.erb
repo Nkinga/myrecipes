@@ -8,6 +8,20 @@
 
 
   <!-- Example row of columns -->
+<% 
+=begin %>
+  <div class="row">
+    <% @recipes = Recipe.all %>
+    <% @recipes.each do |recipe| %>
+      <div class="col-md-4">
+        <h3><%= recipe.name.capitalize %></h3>
+        <%= recipe.description %>
+      </div>
+    <% end %>
+  </div>
+<%
+=end %>
+  
   <div class="row">
     <div class="col-md-4">
       <div class="thumbnail">
