@@ -57,8 +57,10 @@
   <% if @recipe.comments.any? %>
     <div class="col-md-8 col-md-offset-2">
       <h3>Prior Comments: </h3>
-      <div id="messages">
-        <%= render partial: 'comments/comments', object: @comments %>
+      <div id="comments">
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
       </div>
     </div>
   <% else %>
