@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:edit, :show, :update, :destroy]
+  before_action :set_recipe, only: [:edit, :show, :update, :destroy, :upvote, :downvote]
   before_action :require_user, except: [:index, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
@@ -45,6 +45,24 @@ class RecipesController < ApplicationController
     @recipe.destroy
       flash[:notice] = "Recipe was successfully deleted." 
       redirect_to recipes_path
+  end
+  
+  def upvote
+    @recipe.upvote_by current_chef
+    flash[:success] = "Successfully liked"
+    respond_to do |format|
+      format.html {redirect_to recipes_path }
+      format.json { render json: { count: @recipe.liked_count } }
+    end
+  end
+  
+  def downvote
+    @recipe.downvote_by current_chef
+    flash[:success] = "Successfully disliked"
+    respond_to do |format|
+      format.html {redirect_to recipes_path }
+      format.json { render json: { count: @recipe.disliked_count } }
+    end
   end
   
   private

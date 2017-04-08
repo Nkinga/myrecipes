@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
   
   resources :recipes do
+    member do
+      put "like", to: "recipes#upvote"
+      put "dislike", to: "recipes#downvote"
+    end
     resources :comments, only: [:create]
   end
   

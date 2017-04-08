@@ -26,12 +26,23 @@
     </div>
     
     <div class="recipe-actions">
+      <%= link_to like_recipe_path(@recipe), method: :put do %>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Likes:</span>
+          <%= @recipe.get_upvotes.size %>
+      <% end %> 
+      &nbsp;
+      <%= link_to dislike_recipe_path(@recipe), method: :put do %>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Dislikes:</span>
+          <%= @recipe.get_downvotes.size %>
+      <% end %>
+      <br />
+      <br />
+      
       <% if logged_in? && (current_chef == @recipe.chef || current_chef.admin?) %>
         <%= link_to '[ edit this recipe ]', edit_recipe_path, class: "btn btn-warning" %>
         <%= link_to 'delete this recipe', recipe_path(@recipe), method: :delete,
                   data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       <% end %>
-      <%= link_to '[ return to recipes listing ]', recipes_path, class: "btn btn-primary" %>
     </div>
     
   </div>
