@@ -1,56 +1,5 @@
 <div class="footer">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-4">
-          <h3>Services</h3>
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h3>About</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Quisque ac turpis cursus, iaculis nunc eget, mollis massa. 
-            Nunc imperdiet purus at nunc maximus dictum. Praesent tempus
-            purus massa, et molestie quam imperdiet ut. Aenean cursus 
-            diam at mollis egestas. Sed ut nisl et elit pretium ultrices. 
-            Integer urna nisl
-          </p>
-        </div>
-        <div class="col-md-4">
-          <h3>Sign Up</h3>
-          
-           <div class="col-md-12">
-             <%= form_for :chef, remote: true  do |f| %>
-              <div class="form-group">
-                <%= f.label :chefname %>
-                <%= f.text_field :chefname, class: "form-control", placeholder: "Name", autofocus: true %>
-              </div>
-              <div class="form-group">
-                <%= f.label :email %>
-                <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :password %>
-                <%= f.password_field :password, type: "password", class: "form-control", placeholder: "Password" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :password_confirmation, "Confirm password" %>
-                <%= f.password_field :_confirmation, type: "password", class: "form-control", placeholder: "Confirm Password" %>
-              </div>
-            
-              <%= f.submit "create account", class:"btn btn-default btn-xl"%>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+ <div class="panel panel-default">
     <div class="panel-footer">MyRecipes &copy; <%= Time.current.year %></div>
-  </div>
+ </div>
 </div>

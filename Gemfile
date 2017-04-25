@@ -35,7 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'acts_as_votable'
-
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

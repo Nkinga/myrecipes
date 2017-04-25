@@ -85,4 +85,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.web_socket_server_url = "wss://kenarcher-recipeapp.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://kenarcher-recipeapp.herokuapp.com','http://kenarcher-recipeapp.herokuapp.com']
+  
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
