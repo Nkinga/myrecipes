@@ -12,5 +12,7 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   default_scope -> { order(updated_at: :desc) }
   
+  mount_uploader :image, ImageUploader
+  
  
 end 

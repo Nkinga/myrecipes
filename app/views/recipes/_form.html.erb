@@ -11,8 +11,8 @@
       <div class="col-md-8" ><%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Enter steps for recipe" %></div>
     </div>
     <div class="form-group">
-      <div class="control-label col-md-2"><%= f.label :avatar %></div>
-      <div class="col-md-8"><%= f.file_field :avatar %></div>
+      <div class="control-label col-md-2"><%= f.label :image, "Add Image" %></div>
+      <div class="col-md-8"><%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %></div>
     </div>
     
     <div class="form-group">
