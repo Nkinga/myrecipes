@@ -1,8 +1,2 @@
-development:
-  access_key_id: 'AKIAIPRU7EOADJOLN36Q'
-  secret_access_key: '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'
-test:
-  access_key_id: 'AKIAIPRU7EOADJOLN36Q'
-  secret_access_key: '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'
-production:
+
   
